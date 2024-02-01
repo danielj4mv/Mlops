@@ -29,9 +29,9 @@ Una vez clonado el repositorio e importado las librerias se puede correr el API 
    ```console
    uvicorn main:app --reload
    ```
-2. **Acceder al API desde el explorador**
+2. **Acceder al API desde el navegador**
 
-   Se puede acceder al API abriendo en el explorador el enlace que se imprime en consola cuando se ejecuta el comando del paso anterior
+   Se puede acceder al API abriendo en el navegador el enlace que se imprime en consola cuando se ejecuta el comando del paso anterior
 
    ```console
     INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
@@ -50,3 +50,20 @@ Una vez clonado el repositorio e importado las librerias se puede correr el API 
 
    Una vez ejecutada la petición, en la sección de `server response` se muestra la respuesta. Si se entrega una error, este será impreso en la consola
    ![response](/images/res.png)
+
+## Como crear el contenedor de Docker
+
+1. **Entrar a la carpeta raiz del proyecto**
+2. **Crear imagen**
+   ```console
+   docker build -t clf_penguin:latest .
+   ```
+3. **Crear contenedor**
+   ```console
+   docker run -d --name clf_penguin -p 8989:80 clf_penguin:latest
+   ```
+4. **Acceder a la url del container local**
+   
+   Se puede acceder al api del contenedor de manera local desde el navegador en la URL `http://localhost:8989/`
+
+   Una vez en el enlace se puede interactuar con el api de la misma forma que con uvicorn
