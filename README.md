@@ -4,7 +4,7 @@
 
 1. **Clonar el repositorio**
    ```console
-   git clone https://github.com/dcordobap/Mlops_Javeriana_curso.git
+   git clone git@github.com:dcordobap/Mlops_Javeriana_curso.git
    ```
 2. **Crear y activar un entorno virtual**
 3. **Importar las librerias**
