@@ -1,6 +1,81 @@
 # Entrega Taller 1
 
-## Guía para realizar cambios
+## Guía para desplegar la aplicación en local
+1. **Clonar el repositorio en local**
+   ```console
+   git clone git@github.com:dcordobap/Mlops_Javeriana_curso.git
+   ```
+2. **Crear imagen**
+
+   Desde la carpeta en la que se encuentra el Dockerfile, ejecutar el siguiente comando en consola:
+   ```console
+   docker build -t clf_penguin:latest .
+   ```
+3. **Crear contenedor**
+   ```console
+   docker run -d --name clf_penguin -p 8989:80 clf_penguin:latest
+   ```
+4. **Acceder a la url del contenedor local**
+   
+   Se puede acceder a la documentación del API del contenedor de manera local desde el navegador en la URL `http://localhost:8989/`, desde esta se puede probar los endpoints correspondientes a cada uno de los modelos con un JSON de ejemplo suministrado en la propia documentación
+
+5. **Realizar predicciones**
+   
+   El API tiene disponibles dos endpoints (`/predict` y `/predict-alt`) para hacer predicciones a partir de un único registro usando dos modelos distintos:
+
+   5.1. **Realizar predicciones con el modelo 1**
+   
+      Se puede hacer predicciones con el modelo 1 haciendo un POST al siguiente enlace `http://localhost:8989/predict` con un body que tenga una estructura como la suministrada en el siguiente ejemplo
+   ```JSON
+   {
+   "body_mass": 3750,
+   "clutch_completion": "Yes",
+   "comments": "Not enough blood for isotopes.",
+   "culmen_depth_mm": 18.7,
+   "culmen_length_mm": 39.1,
+   "date_egg": "11\\/11\\/07",
+   "delta_13_C": -24.69454,
+   "delta_15_N": 8.94956,
+   "flipper_length_mm": 181,
+   "individual_id": "N1A1",
+   "island": "Torgersen",
+   "region": "Anvers",
+   "sample_number": 1,
+   "sex": "MALE",
+   "stage": "Adult, 1 Egg Stage",
+   "study_name": "PAL0708"
+   }
+   ```
+   La respuesta será una lista con un único string correspondiente a la predicción realizada
+
+   5.2. **Realizar predicciones con el modelo 2**
+   
+      Se puede hacer predicciones con el modelo 1 haciendo un POST al siguiente enlace `http://localhost:8989/predict-alt` con un body que tenga una estructura como la suministrada en el siguiente ejemplo
+   ```JSON
+   {
+   "body_mass": 3750,
+   "clutch_completion": "Yes",
+   "comments": "Not enough blood for isotopes.",
+   "culmen_depth_mm": 18.7,
+   "culmen_length_mm": 39.1,
+   "date_egg": "11\\/11\\/07",
+   "delta_13_C": -24.69454,
+   "delta_15_N": 8.94956,
+   "flipper_length_mm": 181,
+   "individual_id": "N1A1",
+   "island": "Torgersen",
+   "region": "Anvers",
+   "sample_number": 1,
+   "sex": "MALE",
+   "stage": "Adult, 1 Egg Stage",
+   "study_name": "PAL0708"
+   }
+   ```
+   La respuesta será una lista con un único string correspodiente a la predicción realizada
+
+**Las siguientes secciones de este README son para realizar cambios y trabajar sobre este respositorio de manera local y no corresponden a esta entrega**
+
+## Guía para realizar cambios sobre el repositorio
 
 1. **Clonar el repositorio**
    ```console
